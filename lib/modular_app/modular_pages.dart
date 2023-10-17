@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import 'package:modular_migration/go_router_app/go_router_application.dart';
 
 class ModularHomePage extends StatelessWidget {
   const ModularHomePage({super.key});
@@ -23,6 +25,15 @@ class ModularHomePage extends StatelessWidget {
             child: const Text('go router Продукти'),
             onPressed: () {
               Modular.to.pushNamed('/products');
+            },
+          ),
+          CupertinoButton(
+            child: const Text('go router Продукти Modal'),
+            onPressed: () {
+              showMaterialModalBottomSheet(
+                context: context,
+                builder: (context) => const GoRouterApplication(),
+              );
             },
           ),
         ],
